@@ -1,19 +1,22 @@
-var HueApi = require("node-hue-api").HueApi;
-const packageSettings = require("./package").dashitall;
+const conditionalRequire = require("conditional_require").ifResolvable();
+const HueApi = require("node-hue-api").HueApi;
+const colors = require('colors');
 
-var hostname = packageSettings.hub,  // IP of the Philips Hue Bridge
-    newUserName = null;  // The Hue Bridge will generate a User ID
-    userDescription = "Noras Room Dash Button";
+const packageSettings = conditionalRequire('../../.config.json') || require("../../package").dashitall;
 
-var displayUserResult = function(result) {
-    console.log("Created user: " + JSON.stringify(result));
+const hostname = packageSettings.hub,
+    newUserName = null,
+    userDescription = "DashItAll System";
+
+const displayUserResult = function(result) {
+    console.log(`Created user: '${JSON.stringify(result).grey.underline}'.`);
 };
 
-var displayError = function(err) {
+const displayError = function(err) {
     console.log(err);
 };
 
-var hue = new HueApi();
+const hue = new HueApi();
 
 hue.registerUser(hostname, newUserName, userDescription)
     .then(displayUserResult)
