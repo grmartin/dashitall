@@ -1,0 +1,30 @@
+{
+  "name": "dashitall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "conditional_require": "file:../conditional_require",
+    "node-dash-button": "^0.6.1",
+    "node-hue-api": "^2.4.2",
+    "pcap": "git+https://github.com/mranney/node_pcap.git"
+  },
+  "dashitall": {
+    "hub": "<HUB IP ADDRESS>",
+    "dash": {
+      "<DASH MAC ADDRESS>": {
+        "subroutine": "hue:onOff",
+        "parameters": {
+          "light": "<LIGHT ID #>"
+        }
+      }
+    },
+    "user_token": "<USER TOKEN>"
+  }
+}
