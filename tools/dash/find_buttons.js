@@ -42,7 +42,7 @@ pcap_session.on('packet', function(raw_packet) {
         }
         possible_dash = int_array_to_hex(possible_dash);
 
-        var log = ' dash hardware address detected: {0} Manufacturer: {1} Protocol: {2}',
+        var log = ' dash hardware address detected: {0} Manufacturer: {1} ({3}) Protocol: {2}',
             manufacturerKey = possible_dash.slice(0,8).toString().toUpperCase().split(':').join(''),
             manufacturer;
 
@@ -62,6 +62,6 @@ pcap_session.on('packet', function(raw_packet) {
             log = ("Unlikely" + log).grey;
         }
 
-        console.log(log.replace('{0}', possible_dash).replace('{1}', manufacturer).replace('{2}', protocol));
+        console.log(log.replace('{0}', possible_dash).replace('{1}', manufacturer).replace('{2}', protocol).replace('{3}', manufacturerKey));
     }
 });

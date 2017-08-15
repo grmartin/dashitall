@@ -11,9 +11,9 @@
   "dependencies": {
     "colors": "^1.1.2",
     "conditional_require": "0.5.0",
-    "node-dash-button": "^0.6.1",
+    "node-dash-button": "git+https://github.com/grmartin/node-dash-button.git#d7eefdd0eafdc1608d250451f9a004b677714885",
     "node-hue-api": "^2.4.2",
-    "pcap": "git+https://github.com/mranney/node_pcap.git"
+    "pcap": "git+https://github.com/mranney/node_pcap.git#d920204745c8b00ef4b7a3fe27d902b263cdb70f"
   },
   "dashitall": {
     "hub": "<HUB IP ADDRESS>",
